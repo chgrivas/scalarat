@@ -11,9 +11,16 @@ class Rational(n: Int, d: Int) {
 
   override def toString: String = num + "/" + denom
 
-  def add(that: Rational): Rational = {
+  def +(that: Rational): Rational = {
     new Rational(
       num * that.denom + denom * that.num,
+      denom * that.denom
+    )
+  }
+
+  def *(that: Rational): Rational = {
+    new Rational(
+      num * that.num,
       denom * that.denom
     )
   }
