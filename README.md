@@ -1,2 +1,2 @@
 # scalarat
-A Scala restful service
+> A Scala restful service
