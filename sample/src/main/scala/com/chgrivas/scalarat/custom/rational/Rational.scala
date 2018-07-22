@@ -35,6 +35,30 @@ class Rational(n: Int, d: Int) {
       denom
     )
 
+  def -(that: Rational): Rational =
+    new Rational(
+      num * that.denom - that.num * denom,
+      denom * that.denom
+    )
+
+  def -(i: Int): Rational =
+    new Rational(
+      num - i * denom,
+      denom
+    )
+
+  def /(that: Rational): Rational =
+    new Rational(
+      num * that.denom,
+      denom * that.num
+    )
+
+  def /(i: Int): Rational =
+    new Rational(
+      num,
+      denom * i
+    )
+
   private def gcd(a: Int, b: Int): Int =
     if (b == 0) a else  gcd(b, a % b)
 }
