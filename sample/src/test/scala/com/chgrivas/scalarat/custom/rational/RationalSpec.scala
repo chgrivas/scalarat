@@ -44,4 +44,8 @@ class RationalSpec extends FunSuite with DiagrammedAssertions {
   test("A rational gets created normalized") {
     assert(new Rational(4, 2).toString == "2/1")
   }
+
+  test("Adding an integer to a rational works as expected") {
+    assert((new Rational(4, 2) + 5).toString == "7/1")
+  }
 }

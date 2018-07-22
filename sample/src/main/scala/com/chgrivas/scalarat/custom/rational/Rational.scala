@@ -11,33 +11,29 @@ class Rational(n: Int, d: Int) {
 
   override def toString: String = num + "/" + denom
 
-  def +(that: Rational): Rational = {
+  def +(that: Rational): Rational =
     new Rational(
       num * that.denom + denom * that.num,
       denom * that.denom
     )
-  }
 
-  def +(i: Int): Rational = {
+  def +(i: Int): Rational =
     new Rational(
       num + denom * i,
       denom
     )
-  }
 
-  def *(that: Rational): Rational = {
+  def *(that: Rational): Rational =
     new Rational(
       num * that.num,
       denom * that.denom
     )
-  }
 
-  def *(i: Int): Rational = {
+  def *(i: Int): Rational =
     new Rational(
       num * i,
       denom
     )
-  }
 
   private def gcd(a: Int, b: Int): Int =
     if (b == 0) a else  gcd(b, a % b)
