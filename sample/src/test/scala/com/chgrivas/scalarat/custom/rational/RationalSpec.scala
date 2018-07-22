@@ -18,4 +18,12 @@ class RationalSpec extends FunSuite with DiagrammedAssertions {
       new Rational(5, 0)
     }
   }
+
+  test("A Rational can be instantiated with one arguments") {
+    assert(new Rational(5).isInstanceOf[Rational])
+  }
+
+  test("A Rational with one argument gets turned into string as n/1") {
+    assert(new Rational(5).toString == "5/1")
+  }
 }
