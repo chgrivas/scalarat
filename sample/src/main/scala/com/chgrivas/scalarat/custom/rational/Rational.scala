@@ -18,10 +18,24 @@ class Rational(n: Int, d: Int) {
     )
   }
 
+  def +(i: Int): Rational = {
+    new Rational(
+      num + denom * i,
+      denom
+    )
+  }
+
   def *(that: Rational): Rational = {
     new Rational(
       num * that.num,
       denom * that.denom
+    )
+  }
+
+  def *(i: Int): Rational = {
+    new Rational(
+      num * i,
+      denom
     )
   }
 
