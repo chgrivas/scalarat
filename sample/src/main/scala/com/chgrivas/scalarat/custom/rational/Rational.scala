@@ -3,12 +3,13 @@ package com.chgrivas.scalarat.custom.rational
 class Rational(n: Int, d: Int) {
   require(d != 0)
 
-  val num: Int = n
-  val denom: Int = d
+  val g: Int = gcd(n, d)
+  val num: Int = n / g
+  val denom: Int = d / g
 
   def this(n: Int) = this(n, 1)
 
-  override def toString: String = n + "/" + d
+  override def toString: String = num + "/" + denom
 
   def add(that: Rational): Rational = {
     new Rational(
@@ -16,4 +17,7 @@ class Rational(n: Int, d: Int) {
       denom * that.denom
     )
   }
+
+  private def gcd(a: Int, b: Int): Int =
+    if (b == 0) a else  gcd(b, a % b)
 }
