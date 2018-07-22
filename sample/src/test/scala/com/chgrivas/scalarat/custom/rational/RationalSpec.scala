@@ -48,4 +48,18 @@ class RationalSpec extends FunSuite with DiagrammedAssertions {
   test("Adding an integer to a rational works as expected") {
     assert((new Rational(4, 2) + 5).toString == "7/1")
   }
+
+  test("Dividing rationals works as expected") {
+    val twoFifths = new Rational(2, 5)
+    val oneThird = new Rational(1, 3)
+
+    assert((twoFifths / oneThird).toString == "6/5")
+  }
+
+  test("Subtracting rationals works as expected") {
+    val twoFifths = new Rational(2, 5)
+    val oneThird = new Rational(1, 3)
+
+    assert((twoFifths - oneThird).toString == "1/15")
+  }
 }
