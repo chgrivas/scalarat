@@ -26,4 +26,11 @@ class RationalSpec extends FunSuite with DiagrammedAssertions {
   test("A Rational with one argument gets turned into string as n/1") {
     assert(new Rational(5).toString == "5/1")
   }
+
+  test("Adding rationals works as expected") {
+    val twoFifths = new Rational(2, 5)
+    val oneThird = new Rational(1, 3)
+
+    assert(twoFifths.add(oneThird).toString == "11/15")
+  }
 }
