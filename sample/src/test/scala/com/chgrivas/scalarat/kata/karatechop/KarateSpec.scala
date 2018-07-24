@@ -4,7 +4,7 @@ import org.scalatest.{DiagrammedAssertions, FunSuite}
 
 class KarateSpec extends FunSuite with DiagrammedAssertions {
 
-  test("Calling the chop method of the companion object does not throw an exception") {
+  test("Calling the chop method of the companion objectcompiles successfully") {
     assertCompiles("Karate.chop(1, Array.emptyIntArray)")
   }
 }
