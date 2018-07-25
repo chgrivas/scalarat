@@ -8,8 +8,9 @@ class FizzBuzzSpec extends FunSuite with DiagrammedAssertions {
     assertCompiles("FizzBuzz.print(1)")
   }
 
-  test("FizzBuzz with a number less than zero throws an exception") {
+  test("FizzBuzz with a number <= zero throws an exception") {
     assertThrows[IllegalArgumentException](FizzBuzz.print(-1))
+    assertThrows[IllegalArgumentException](FizzBuzz.print(0))
   }
 
   test("FizzBuzz with a number that gets divided by 3 should return Fizz") {
@@ -28,5 +29,10 @@ class FizzBuzzSpec extends FunSuite with DiagrammedAssertions {
     assert(FizzBuzz.print(15) == "FizzBuzz")
     assert(FizzBuzz.print(30) == "FizzBuzz")
     assert(FizzBuzz.print(45) == "FizzBuzz")
+  }
+
+  test("FizzBuzz with a number not divided by both 3 or 5 should return itself as a string") {
+    assert(FizzBuzz.print(14) == "14")
+    assert(FizzBuzz.print(2) == "2")
   }
 }
