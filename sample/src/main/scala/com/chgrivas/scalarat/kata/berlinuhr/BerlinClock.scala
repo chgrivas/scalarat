@@ -3,12 +3,25 @@ package com.chgrivas.scalarat.kata.berlinuhr
 object BerlinClock {
 
   def convertToBerlinTime(time: String): Array[String] = {
-    Array("")
+    val parts = time.split(":").map(_.toInt)
+    Array(
+      seconds(parts(2)),
+      topHours(parts(0)),
+      bottomHours(parts(0)),
+      topMinutes(parts(1)),
+      bottomMinutes(parts(1))
+    )
   }
 
   def seconds(s: Int): String = if (s % 2 == 0) "Y" else "O"
 
   def topHours(number: Int) = onOff(4, topNumberOfOnSigns(number))
+
+  def bottomHours(number: Int) = onOff(4, number % 5)
+
+  def topMinutes(number: Int) = onOff(11, topNumberOfOnSigns(number), "Y").replaceAll("YYY", "YYR")
+
+  def bottomMinutes(number: Int) = onOff(4, number % 5, "Y")
 
   private def onOff(lamps: Int, onSigns: Int, onSign: String = "R") = {
     onSign * onSigns + "O" * (lamps - onSigns)

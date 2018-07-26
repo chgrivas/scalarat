@@ -28,4 +28,9 @@ class BerlinClockSpec extends FunSuite with DiagrammedAssertions {
     assert(BerlinClock.topHours(22) == "RRRR")
   }
 
+  test("Time is converted correctly to Berlin one") {
+    val berlinTime = BerlinClock.convertToBerlinTime("16:37:16")
+    val expectedBerlinTime = Array("Y", "RRRO", "ROOO", "YYRYYRYOOOO", "YYOO")
+    assert(berlinTime.sameElements(expectedBerlinTime))
+  }
 }
